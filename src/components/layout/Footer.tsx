@@ -9,7 +9,7 @@ export function Footer() {
             <div>
               <h3 className="text-2xl font-semibold text-slate-900 mb-6">TSUE.</h3>
               <p className="text-sm text-slate-500 leading-relaxed">
-                Tashkent State University of Economics.
+                Termez University of Economics and Services.
                 <br />
                 Building leaders for the digital economy.
               </p>
