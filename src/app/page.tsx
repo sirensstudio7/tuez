@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { Counter } from "@/components/ui/Counter";
 import { Button } from "@/components/ui/Button";
 import { BentoGrid } from "@/components/ui/BentoGrid";
@@ -10,7 +11,25 @@ import { NewsSection } from "@/components/layout/NewsSection";
 import { AboutSection } from "@/components/layout/AboutSection";
 import { FacultiesSection } from "@/components/layout/FacultiesSection";
 
+const titles = [
+  "Welcome to Termez University Of Economics and Service",
+  "Become a professional in Classrooms",
+  "Most Modern Infrastructures"
+];
+
+const TITLES_COUNT = titles.length;
+
 export default function Home() {
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitleIndex((prev) => (prev + 1) % TITLES_COUNT);
+    }, 4000); // Change title every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [TITLES_COUNT]);
+
   return (
     <div className="relative bg-white min-h-screen">
       {/* Subtle Background Grid - Light Mode */}
@@ -35,29 +54,37 @@ export default function Home() {
               <div className="px-4 sm:px-6 lg:px-8">
                 <div className="mb-6 w-fit inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium uppercase tracking-wider text-white backdrop-blur-sm">
                   <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75"></span>
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-600"></span>
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00C49D] opacity-75"></span>
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-[#00C49D]"></span>
                   </span>
                   Admissions Open 2025
                 </div>
                 
-                <h1 className="mb-6 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1]">
-                  <motion.span 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="block"
-                  >
-                    Shape the
-                  </motion.span>
-                  <motion.span 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="block text-white/80"
-                  >
-                    Future Economy
-                  </motion.span>
+                <h1 className="-mb-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl leading-[1.1] min-h-[120px] sm:min-h-[140px] md:min-h-[160px]">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentTitleIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="block m-0"
+                    >
+                      {currentTitleIndex === 1 ? (
+                        <>
+                          <span className="block">Become a professional</span>
+                          <span className="block">in Classrooms</span>
+                        </>
+                      ) : currentTitleIndex === 2 ? (
+                        <>
+                          <span className="block">Most Modern</span>
+                          <span className="block">Infrastructures</span>
+                        </>
+                      ) : (
+                        titles[currentTitleIndex]
+                      )}
+                    </motion.span>
+                  </AnimatePresence>
                 </h1>
                 
                 <motion.p 
@@ -66,13 +93,13 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
                   className="mb-8 text-base text-white/90 max-w-xl leading-relaxed font-light"
                 >
-                  Tashkent State University of Economics. Redefining education through innovation, global research, and sustainable development.
+                  TUES strongly emphasizes conducting cutting-edge research and implementing the latest teaching methods.
                 </motion.p>
               </div>
               
               <div className="px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row gap-4">
-                <Button className="h-11 px-8 text-sm rounded-full bg-white text-slate-900 hover:bg-slate-100 hover:scale-105 transition-all duration-300 shadow-xl shadow-slate-900/20">
-                  Explore Programs
+                <Button className="h-11 px-8 text-sm rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-xl shadow-slate-900/20">
+                  Become a Student
                 </Button>
                 <Button variant="outline" className="h-11 px-8 text-sm rounded-full border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm">
                   Virtual Tour
@@ -89,25 +116,25 @@ export default function Home() {
             >
                  <div className="flex flex-col w-full h-full justify-between min-h-[500px]">
                     <div className="group flex-1 flex flex-col justify-center items-start gap-8 p-8 border-x border-b border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-300">
-                        <h4 className="text-4xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                        <h4 className="text-4xl font-bold text-blue-600 transition-colors duration-300">
                           <Counter value={23798} />
                         </h4>
                         <p className="text-sm text-slate-500 uppercase tracking-wider font-medium text-left">Students</p>
                     </div>
                     <div className="group flex-1 flex flex-col justify-center items-start gap-8 p-8 border-x border-b border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-300">
-                        <h4 className="text-4xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
-                          <Counter value={1200} suffix="+" />
+                        <h4 className="text-4xl font-bold text-blue-600 transition-colors duration-300">
+                          <Counter value={412} />
                         </h4>
                         <p className="text-sm text-slate-500 uppercase tracking-wider font-medium text-left">Professors Teachers</p>
                     </div>
                     <div className="group flex-1 flex flex-col justify-center items-start gap-8 p-8 border-x border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-300">
-                        <h4 className="text-4xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                        <h4 className="text-4xl font-bold text-blue-600 transition-colors duration-300">
                           <Counter value={27447} />
                         </h4>
                         <p className="text-sm text-slate-500 uppercase tracking-wider font-medium text-left">IRC Fund</p>
                     </div>
                     <div className="group flex-1 flex flex-col justify-center items-start gap-6 p-6 sm:p-8 border border-slate-200 bg-white hover:bg-slate-50 transition-colors duration-300">
-                        <h4 className="text-4xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors duration-300">
+                        <h4 className="text-4xl font-bold text-blue-600 transition-colors duration-300">
                           <Counter value={3} suffix="+" />
                         </h4>
                         <p className="text-sm text-slate-500 uppercase tracking-wider font-medium text-left">Faculties Count</p>
@@ -140,6 +167,34 @@ export default function Home() {
 
       {/* News Section */}
       <NewsSection />
+
+      {/* New Grid Section */}
+      <section className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px] md:min-h-[600px]">
+        {/* Left Side - Background Image */}
+        <div 
+          className="relative bg-cover bg-center"
+          style={{
+            backgroundImage: `url(/image1.jpg)`
+          }}
+        >
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        
+        {/* Right Side - Background */}
+        <div className="bg-[#FF2D73] flex items-center justify-center p-8 md:p-12 lg:p-16">
+          <div className="max-w-md">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white mb-6 tracking-tight">
+              Your Future Starts Here
+            </h2>
+            <p className="text-white/80 text-base font-light leading-relaxed mb-8">
+              Join thousands of students who are shaping their future at Termez University of Economics and Service.
+            </p>
+            <Button className="h-12 px-8 text-sm rounded-full bg-white text-black hover:bg-slate-100 transition-all duration-300 shadow-none">
+              Learn More
+            </Button>
+          </div>
+        </div>
+      </section>
 
       {/* 360 Tour Section */}
       <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 border-t border-slate-100 bg-white">
@@ -200,22 +255,6 @@ export default function Home() {
               Start Virtual Tour
             </Button>
           </div>
-        </div>
-      </section>
-
-      {/* Stats / CTA Section */}
-      <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden border-t border-slate-100 bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-50 via-white to-white" />
-        <div className="max-w-5xl mx-auto relative z-10 text-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-slate-900 mb-6 md:mb-8 tracking-tight">
-              Ready to start?
-            </h2>
-            <p className="text-slate-500 max-w-md mx-auto text-base mb-8 md:mb-12 font-light">
-                Join a community of innovators. Apply for the academic year today.
-            </p>
-            <Button className="h-16 px-12 text-xl rounded-full bg-slate-900 text-white hover:bg-slate-800 transition-transform hover:scale-105 shadow-xl shadow-slate-200">
-              Apply Now
-            </Button>
         </div>
       </section>
 

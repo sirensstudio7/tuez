@@ -13,7 +13,20 @@ export function Navbar() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set());
   const [scrolled, setScrolled] = useState(false);
-  const [language, setLanguage] = useState<'UZ' | 'EN'>('EN');
+  const [language, setLanguage] = useState<'UZ' | 'EN' | 'RU'>('EN');
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  
+  // Subtitle texts for each menu item
+  const menuSubtitles: Record<string, string> = {
+    "University": "Currently, the university has 24 Bachelor's and 13 master's degrees. An electronic IRC is formed on the necessary books on the education of students. Applicants may be aware of the information on the admission process to the University remotely.",
+    "Education": "Our comprehensive educational programs prepare students for success in the modern economy. We offer diverse fields of study with state-of-the-art facilities and experienced faculty members.",
+    "Science": "TSUE is committed to advancing scientific research and innovation. Our research centers and academic programs contribute to sustainable economic development and global knowledge.",
+    "Internationalization": "We foster global partnerships and international collaboration. Our exchange programs and joint initiatives provide students with worldwide opportunities and perspectives.",
+    "Student Life": "Experience a vibrant campus community with diverse activities, clubs, and events. Our student support services ensure a well-rounded university experience.",
+    "Admission 2025": "Join TSUE for the academic year 2025. We welcome applications from qualified students seeking excellence in economics, business, and related fields.",
+    "Information Services": "Access our digital platforms and services for students, faculty, and staff. Manage your academic journey through our integrated information systems.",
+    "Vacancies": "Explore career opportunities at TSUE. We seek talented individuals to join our academic and administrative teams in building the future of education."
+  };
   
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -60,24 +73,24 @@ export function Navbar() {
 
   return (
     <>
-      <div className="bg-slate-900 text-white text-xs h-10 hidden lg:flex items-center border-b border-white/10">
+      <div className="bg-slate-100 text-slate-700 text-xs h-10 hidden lg:flex items-center border-b border-slate-200">
         <div className="w-full px-6 lg:px-8 flex justify-between items-center">
           <div className="flex gap-6">
-            <span className="font-mono opacity-80 flex items-center gap-2 hover:text-[#FF2D73] hover:opacity-100 transition-colors cursor-pointer [&_svg]:hover:stroke-[#FF2D73] [&_svg]:transition-colors">
+            <span className="font-mono text-slate-600 flex items-center gap-2 hover:text-[#FF2D73] transition-colors cursor-pointer [&_svg]:hover:stroke-[#FF2D73] [&_svg]:transition-colors">
               <Phone size={12} />
               +998 71 239 01 49
             </span>
-            <span className="opacity-80 flex items-center gap-2 hover:text-[#FF2D73] hover:opacity-100 transition-colors cursor-pointer [&_svg]:hover:stroke-[#FF2D73] [&_svg]:transition-colors">
+            <span className="text-slate-600 flex items-center gap-2 hover:text-[#FF2D73] transition-colors cursor-pointer [&_svg]:hover:stroke-[#FF2D73] [&_svg]:transition-colors">
               <Mail size={12} />
               university@tsue.uz
             </span>
           </div>
-          <div className="flex gap-4 opacity-70">
-            <Link href="#" className="hover:text-white hover:opacity-100 transition-colors"><Instagram size={14} /></Link>
-            <Link href="#" className="hover:text-white hover:opacity-100 transition-colors"><Twitter size={14} /></Link>
-            <Link href="#" className="hover:text-white hover:opacity-100 transition-colors"><Linkedin size={14} /></Link>
-            <Link href="#" className="hover:text-white hover:opacity-100 transition-colors"><Facebook size={14} /></Link>
-            <Link href="#" className="hover:text-white hover:opacity-100 transition-colors"><Send size={14} /></Link>
+          <div className="flex gap-4">
+            <Link href="#" className="text-slate-600 hover:text-[#FF2D73] transition-colors"><Instagram size={14} /></Link>
+            <Link href="#" className="text-slate-600 hover:text-[#FF2D73] transition-colors"><Twitter size={14} /></Link>
+            <Link href="#" className="text-slate-600 hover:text-[#FF2D73] transition-colors"><Linkedin size={14} /></Link>
+            <Link href="#" className="text-slate-600 hover:text-[#FF2D73] transition-colors"><Facebook size={14} /></Link>
+            <Link href="#" className="text-slate-600 hover:text-[#FF2D73] transition-colors"><Send size={14} /></Link>
           </div>
         </div>
       </div>
@@ -88,23 +101,26 @@ export function Navbar() {
       }`}>
       <div className="w-full px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Link href="/" className="z-50 flex items-center">
+          <Link href="/" className="flex items-center gap-4 group transition-colors">
+            <div className="z-50 flex items-center">
               <Image 
                 src="/logo.png" 
                 alt="TSUE Logo" 
-                width={180}
-                height={60}
-                className="h-14 w-auto object-contain"
+                width={56}
+                height={56}
+                className="h-14 w-14 object-contain"
                 priority
                 unoptimized
                 style={{ display: 'block' }}
               />
-            </Link>
-          </div>
+            </div>
+            <div className="text-xs font-medium text-black w-[160px] leading-relaxed cursor-pointer group-hover:text-blue-600">
+              Termez University of <span className="text-black group-hover:text-blue-600">Economics and Service</span>
+            </div>
+          </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-6 relative">
+          <div className="hidden lg:flex items-center gap-4 relative">
             {navigationData.map((item, index) => (
               <div
                 key={item.label}
@@ -114,7 +130,7 @@ export function Navbar() {
               >
                 <Link
                   href={item.href}
-                  className="flex items-center gap-1 text-sm font-medium text-slate-600 transition-colors py-2"
+                  className="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors py-2 whitespace-nowrap"
                 >
                   {item.label}
                   {item.subItems && (
@@ -141,10 +157,10 @@ export function Navbar() {
                   onMouseEnter={() => setHoveredIndex(hoveredIndex)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <div className="bg-white rounded-none shadow-lg border border-slate-200 p-4 w-full flex gap-4 overflow-hidden">
+                  <div className="bg-white rounded-none shadow-lg border border-slate-200 p-4 w-full flex gap-6 overflow-hidden">
                     {/* Background Image on Left */}
-                    <div className="w-[300px] flex-shrink-0 flex flex-col">
-                      <div className="w-[300px] h-[300px] relative rounded-none overflow-hidden">
+                    <div className="w-[300px] flex-shrink-0 flex flex-col border-r border-slate-200 pr-6">
+                      <div className="w-[300px] h-[300px] relative rounded-none overflow-hidden hidden">
                         <div 
                           className="absolute inset-0 bg-cover bg-center"
                           style={{ 
@@ -154,17 +170,17 @@ export function Navbar() {
                       </div>
                       <h3 className="text-base font-semibold text-slate-900 mt-2">{navigationData[hoveredIndex]?.label}</h3>
                       <p className="text-sm text-slate-600 leading-relaxed mt-2">
-                        Termez University of Economics and Services (TUES) is committed to providing excellent higher education to both Uzbek and international students. We offer a variety of undergraduate and graduate programs in economics, medicine, computer science, and other fields, providing our graduates with excellent opportunities in the global labor market.
+                        {hoveredIndex !== null && menuSubtitles[navigationData[hoveredIndex]?.label] || ""}
                       </p>
                     </div>
                     
                     {/* Menu Items */}
-                    <div className="flex-1 grid grid-cols-2 gap-4">
+                    <div className="flex-1 grid grid-cols-2 gap-x-0 gap-y-2 auto-rows-[36px]">
                       {navigationData[hoveredIndex].subItems?.map((subItem, idx) => (
                         <Link
                           key={subItem.label}
                           href={subItem.href}
-                          className="block px-4 py-2.5 h-10 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors line-clamp-1 flex items-center"
+                          className="block px-4 py-1.5 h-9 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-colors line-clamp-1 flex items-center"
                         >
                           {subItem.label}
                         </Link>
@@ -176,27 +192,78 @@ export function Navbar() {
             </AnimatePresence>
             
             {/* Language Switcher */}
-            <div className="hidden flex items-center gap-1 border border-slate-200 rounded-lg p-1 bg-slate-50">
+            <div className="relative ml-4">
               <button
-                onClick={() => setLanguage('UZ')}
-                className={`px-3 py-1.5 text-xs font-medium rounded transition-all ${
-                  language === 'UZ'
-                    ? 'bg-white text-blue-600 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors border border-slate-200 rounded-lg bg-white hover:bg-slate-50"
               >
-                UZ
+                <span className="text-base">
+                  {language === 'UZ' ? '🇺🇿' : language === 'EN' ? '🇬🇧' : '🇷🇺'}
+                </span>
+                <span>{language}</span>
+                <ChevronDown
+                  size={14}
+                  className={`transition-transform duration-200 ${
+                    isLanguageOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-              <button
-                onClick={() => setLanguage('EN')}
-                className={`px-3 py-1.5 text-xs font-medium rounded transition-all ${
-                  language === 'EN'
-                    ? 'bg-white text-blue-600 shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                EN
-              </button>
+              
+              <AnimatePresence>
+                {isLanguageOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute top-full right-0 mt-2 w-32 bg-white border border-slate-200 rounded-lg shadow-lg overflow-hidden z-50"
+                    onMouseLeave={() => setIsLanguageOpen(false)}
+                  >
+                    <button
+                      onClick={() => {
+                        setLanguage('UZ');
+                        setIsLanguageOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left transition-colors ${
+                        language === 'UZ'
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span className="text-base">🇺🇿</span>
+                      <span>Uz</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLanguage('EN');
+                        setIsLanguageOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left transition-colors border-t border-slate-100 ${
+                        language === 'EN'
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span className="text-base">🇬🇧</span>
+                      <span>En</span>
+                    </button>
+                    <button
+                      onClick={() => {
+                        setLanguage('RU');
+                        setIsLanguageOpen(false);
+                      }}
+                      className={`w-full flex items-center gap-2 px-4 py-2.5 text-sm text-left transition-colors border-t border-slate-100 ${
+                        language === 'RU'
+                          ? 'bg-blue-50 text-blue-600'
+                          : 'text-slate-700 hover:bg-slate-50'
+                      }`}
+                    >
+                      <span className="text-base">🇷🇺</span>
+                      <span>Ru</span>
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
             
             <Button variant="primary" className="hidden h-11 px-4 rounded-full bg-blue-600 text-white border-none shadow-md shadow-blue-200/50 hover:bg-blue-700">

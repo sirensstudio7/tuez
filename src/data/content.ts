@@ -76,7 +76,7 @@ export const newsData: NewsItem[] = [
     date: "Oct 24, 2025",
     category: "Events",
     summary: "TSUE will host the 4th International Forum titled 'Global and National Economic Trends: Uzbekistan–2030 Strategy', bringing together leading economists and policymakers.",
-    image: "/news/forum.jpg" 
+    image: "/image1.jpg" 
   },
   {
     id: "2",
@@ -84,7 +84,7 @@ export const newsData: NewsItem[] = [
     date: "Dec 10, 2025",
     category: "Achievements",
     summary: "The university has been recognized for its 'Green Campus' initiative, securing the top spot in the Central Asian sustainability rankings for 2025.",
-    image: "/news/award.jpg"
+    image: "/image2.jpg"
   },
   {
     id: "3",
@@ -92,7 +92,7 @@ export const newsData: NewsItem[] = [
     date: "Nov 15, 2025",
     category: "Partnerships",
     summary: "A strategic memorandum has been signed to facilitate student exchange programs and joint research initiatives with LSE.",
-    image: "/news/partnership.jpg"
+    image: "/image3.jpg"
   },
   {
     id: "4",
@@ -100,7 +100,39 @@ export const newsData: NewsItem[] = [
     date: "Sep 01, 2025",
     category: "Academics",
     summary: "Responding to market demands, TSUE introduces a cutting-edge Master's degree focusing on Artificial Intelligence applications in the financial sector.",
-    image: "/news/ai-program.jpg"
+    image: "/image1.jpg"
+  },
+  {
+    id: "5",
+    title: "Research Center Opens for Sustainable Development",
+    date: "Aug 20, 2025",
+    category: "Research",
+    summary: "A new state-of-the-art research center focusing on sustainable economic development and environmental policies has been inaugurated.",
+    image: "/image2.jpg"
+  },
+  {
+    id: "6",
+    title: "Student Exchange Program with European Universities",
+    date: "Jul 15, 2025",
+    category: "International",
+    summary: "TUES expands its international partnerships with top European universities, offering students global learning opportunities.",
+    image: "/image3.jpg"
+  },
+  {
+    id: "7",
+    title: "Annual Graduation Ceremony Celebrates 5,000 Graduates",
+    date: "Jun 30, 2025",
+    category: "Events",
+    summary: "The university proudly celebrates the graduation of over 5,000 students across various disciplines in a grand ceremony.",
+    image: "/image1.jpg"
+  },
+  {
+    id: "8",
+    title: "New Scholarship Program for International Students",
+    date: "May 10, 2025",
+    category: "Admission",
+    summary: "TUES announces a comprehensive scholarship program to support international students pursuing higher education in Uzbekistan.",
+    image: "/image2.jpg"
   }
 ];
 
@@ -112,7 +144,7 @@ export const statsData = [
 ];
 
 export const aboutContent = {
-  mission: "To provide world-class education in economics and business, fostering leaders who will drive the sustainable development of Uzbekistan and the global economy.",
-  vision: "To become a recognized hub of academic excellence and innovation in Central Asia by 2030.",
-  history: "Established in 1931, Tashkent State University of Economics has a rich legacy of producing prominent statesmen, economists, and business leaders. From its humble beginnings, it has grown into the largest economic university in the region."
+  history: "The Termez University of Economics and Service (TUES) is a renowned Uzbekistan institution committed to advancing exceptional Medical and other Higher Education. TUES strives to produce outstanding Medical graduates from both Uzbekistan and international medical aspirants.",
+  mission: "TUES strongly emphasizes conducting cutting-edge research and implementing the latest teaching methods to provide outstanding clinical and other training to its students. The university offers a wide range of programs in various fields of study at both the undergraduate and graduate levels. Through its extensive network of global partnerships, TUES effectively incorporates industry-driven teaching and training techniques to support its graduates. The degrees offered by TUES, including MBBS, are recognized worldwide.",
+  vision: "To become a recognized hub of academic excellence and innovation in Central Asia by 2030."
 };

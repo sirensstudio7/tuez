@@ -29,7 +29,7 @@ export function AboutSection() {
         <div className="absolute bottom-24 right-1/3 w-1/2 h-px bg-gradient-to-l from-transparent via-slate-200 to-transparent -rotate-7" />
         <div className="absolute bottom-12 left-1/4 w-3/4 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent rotate-15" />
       </div>
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start relative z-10 p-6">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-stretch relative z-10 p-6">
         
         {/* Text Content */}
         <motion.div
@@ -87,14 +87,14 @@ export function AboutSection() {
             viewport={{ once: true }}
             className="mt-6 md:mt-8"
           >
-            <Button className="h-11 rounded-full bg-blue-600 text-white hover:bg-blue-700">
+            <Button className="h-11 px-6 rounded-full bg-blue-600 text-white hover:bg-blue-700 shadow-none">
               Learn more
             </Button>
           </motion.div>
         </motion.div>
 
         {/* Visual / Image Side */}
-        <div className="relative grid grid-cols-2 gap-3 md:gap-4 h-[500px] md:h-[600px]">
+        <div className="relative grid grid-cols-2 gap-3 md:gap-4 h-full">
            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -120,12 +120,12 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-[190px]"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=3270&auto=format&fit=crop')`
+                    backgroundImage: `url('/image1.jpg')`
                   }}
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -139,12 +139,12 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-[190px]"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1592280771884-4a1dc6f8663c?q=80&w=3270&auto=format&fit=crop')`
+                    backgroundImage: `url('/image2.jpg')`
                   }}
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
@@ -158,12 +158,12 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-[190px]"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=3286&auto=format&fit=crop')`
+                    backgroundImage: `url('/image3.jpg')`
                   }}
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

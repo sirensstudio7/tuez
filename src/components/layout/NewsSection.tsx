@@ -38,7 +38,9 @@ export function NewsSection() {
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                      backgroundImage: `url(https://source.unsplash.com/random/400x300?university,education,conference,business,research&sig=${item.id.charCodeAt(0) + i * 100})`
+                      backgroundImage: item.image 
+                        ? `url(${item.image})` 
+                        : `url(/image${(i % 3) + 1}.jpg)`
                     }}
                   />
               </div>

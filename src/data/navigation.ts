@@ -4,7 +4,7 @@ export interface NavItem {
   subItems?: { label: string; href: string }[];
 }
 
-export const navigationData: NavItem[] = [
+const navigationData: NavItem[] = [
   {
     label: "University",
     href: "#university",
@@ -105,3 +105,5 @@ export const navigationData: NavItem[] = [
     ],
   },
 ];
+
+export { navigationData };

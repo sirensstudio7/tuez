@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Linkedin, Twitter, Instagram, Facebook } from "lucide-react";
+
 export function Footer() {
     return (
       <footer className="border-t border-slate-100 bg-white py-20">
@@ -29,11 +32,20 @@ export function Footer() {
             </div>
             <div>
               <h4 className="text-sm font-semibold text-slate-900 mb-6 uppercase tracking-wider">Connect</h4>
-              <ul className="space-y-4 text-sm text-slate-500">
-                <li><a href="#" className="hover:text-blue-600 transition-colors">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-blue-600 transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-blue-600 transition-colors">Instagram</a></li>
-              </ul>
+              <div className="flex items-center gap-4">
+                <Link href="#" className="text-slate-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+                  <Linkedin size={20} />
+                </Link>
+                <Link href="#" className="text-slate-400 hover:text-blue-600 transition-colors" aria-label="Twitter">
+                  <Twitter size={20} />
+                </Link>
+                <Link href="#" className="text-slate-400 hover:text-blue-600 transition-colors" aria-label="Instagram">
+                  <Instagram size={20} />
+                </Link>
+                <Link href="#" className="text-slate-400 hover:text-blue-600 transition-colors" aria-label="Facebook">
+                  <Facebook size={20} />
+                </Link>
+              </div>
             </div>
           </div>
           <div className="mt-20 border-t border-slate-100 pt-8 text-center text-xs text-slate-400">
