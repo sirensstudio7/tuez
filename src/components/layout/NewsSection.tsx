@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { NewsItem, newsData } from "@/data/content";
+import { newsData } from "@/data/content";
 import { ArrowRight, Tag } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-export function NewsSection() {
+function NewsSection() {
   return (
     <section className="py-16 md:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 border-t border-slate-100 bg-white relative">
       <div className="max-w-7xl mx-auto">
@@ -76,3 +76,5 @@ export function NewsSection() {
     </section>
   );
 }
+
+export { NewsSection };

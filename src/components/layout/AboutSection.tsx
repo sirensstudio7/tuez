@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { aboutContent, statsData } from "@/data/content";
+import { aboutContent } from "@/data/content";
 import { Button } from "@/components/ui/Button";
 
 export function AboutSection() {
@@ -94,13 +94,13 @@ export function AboutSection() {
         </motion.div>
 
         {/* Visual / Image Side */}
-        <div className="relative grid grid-cols-2 gap-3 md:gap-4 h-full">
+        <div className="relative grid grid-cols-2 gap-3 sm:gap-4 h-auto">
            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 col-span-2 row-span-2 md:col-span-1 md:row-span-3"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 col-span-2 sm:col-span-1 row-span-2 sm:row-span-3 min-h-[200px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-0 lg:h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
@@ -109,8 +109,8 @@ export function AboutSection() {
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-4 md:bottom-6 left-4 md:left-6 text-white">
-                    <p className="font-medium text-base md:text-lg">Main Campus</p>
+                <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 text-white">
+                    <p className="font-medium text-sm sm:text-base md:text-lg">Main Campus</p>
                     <p className="text-white/80 text-xs mt-1">Historic Building</p>
                 </div>
             </motion.div>
@@ -120,7 +120,7 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-full"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
@@ -129,8 +129,8 @@ export function AboutSection() {
                   }}
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-medium text-sm">Library</p>
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
+                    <p className="font-medium text-xs sm:text-sm">Library</p>
                 </div>
             </motion.div>
 
@@ -139,7 +139,7 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-full"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
@@ -148,8 +148,8 @@ export function AboutSection() {
                   }}
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-medium text-sm">Student Life</p>
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
+                    <p className="font-medium text-xs sm:text-sm">Student Life</p>
                 </div>
             </motion.div>
 
@@ -158,7 +158,7 @@ export function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 hidden md:block h-full"
+              className="relative overflow-hidden border border-slate-100 bg-slate-50 shadow-lg shadow-slate-200/50 min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:h-full"
             >
                 <div 
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
@@ -167,8 +167,8 @@ export function AboutSection() {
                   }}
                 />
                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-medium text-sm">Community</p>
+                  <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 text-white">
+                    <p className="font-medium text-xs sm:text-sm">Community</p>
                 </div>
             </motion.div>
         </div>

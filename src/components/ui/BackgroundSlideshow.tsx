@@ -20,7 +20,7 @@ export function BackgroundSlideshow() {
   }, []);
 
   return (
-    <div className="absolute inset-0 w-full h-full bg-slate-900 overflow-hidden">
+    <div className="absolute inset-0 w-full min-h-full bg-slate-900 overflow-hidden">
       <AnimatePresence initial={false} mode="popLayout">
         <motion.div
           key={index}
@@ -28,7 +28,7 @@ export function BackgroundSlideshow() {
           animate={{ x: 0 }}
           exit={{ x: "-100%" }}
           transition={{ duration: 0.3, ease: "easeInOut", delay: 0.3 }}
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 w-full min-h-full bg-cover bg-center bg-no-repeat"
           style={{ 
             backgroundImage: `url(${backgrounds[index]})`,
             backgroundSize: 'cover',
@@ -36,7 +36,7 @@ export function BackgroundSlideshow() {
           }}
         />
       </AnimatePresence>
-      <div className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 w-full min-h-full bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
     </div>
   );
 }

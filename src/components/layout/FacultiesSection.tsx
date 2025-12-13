@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { facultiesData } from "@/data/content";
 import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 
 export function FacultiesSection() {
   return (

@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
-import { ArrowRight, BookOpen, Globe, Laptop, Users } from "lucide-react";
+import { BookOpen, Globe, Laptop, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const features = [
@@ -36,7 +35,7 @@ const features = [
   },
 ];
 
-export function BentoGrid() {
+function BentoGrid() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {features.map((feature, i) => (
@@ -69,3 +68,5 @@ export function BentoGrid() {
     </div>
   );
 }
+
+export { BentoGrid };

@@ -1,4 +1,4 @@
-import { LucideIcon, BookOpen, Users, Trophy, Lightbulb, Globe, Target, Calculator, BarChart, Plane, Briefcase, Coins, ShieldCheck, Laptop } from "lucide-react";
+import { LucideIcon, Users, Trophy, Lightbulb, Globe, Target, Calculator, BarChart, Plane, Briefcase, Coins, Laptop } from "lucide-react";
 
 export interface Faculty {
   id: string;

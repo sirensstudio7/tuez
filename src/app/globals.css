@@ -9,6 +9,7 @@
   --color-tsue-blue: #00316b;
   --color-tsue-dark: #0f172a;
   --color-tsue-accent: #3b82f6;
+  --breakpoint-1400: 1400px;
 }
 
 body {
